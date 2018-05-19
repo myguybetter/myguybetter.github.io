@@ -11,7 +11,7 @@
 
     <title>
         
-        Hello, Blog
+        Project GoogleIPHunter - Hello, Blog
         
     </title>
 
@@ -68,7 +68,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -90,6 +90,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
     
 </div>
 
@@ -116,51 +120,36 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        Project GoogleIPHunter
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-05-19 16:50:52</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#github" title="github">github</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>个人收集项目，目前针对的是Google全球缓存IP（GGC）段。已全部扫描过，会不定时更新。如有任何问题请在Issues中提问。</p>
+<p>项目地址：<a href="https://github.com/myguybetter/GoogleIPHunter" target="_blank" rel="noopener">https://github.com/myguybetter/GoogleIPHunter</a></p>
+<p>使用工具：<a href="https://censys.io" target="_blank" rel="noopener">https://censys.io</a></p>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>05-19</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/05/Project-GoogleIPHunter/">
-                        <span>
-                            Project GoogleIPHunter
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>05-11</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/05/escape-games/">
-                        <span>
-                            WaveA及Gotmail手机逃脱游戏下载
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-
-    </ul>
+        <div id="comment-container">
+        </div>
+    </div>
 </div>
 
-</div>
     </div>
 </div>
 
@@ -218,10 +207,24 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Project GoogleIPHunter',
+        owner: 'myguybetter',
+        repo: 'myguybetter.github.io',
+        oauth: {
+            client_id: '2bcf3577e26c1c5ecadb',
+            client_secret: '8cf24d1c0fff7d25f5fea65603f49e7180ecd416',
+        },
+    })
+    gitment.render('comment-container')
+</script>
 
 </html>
