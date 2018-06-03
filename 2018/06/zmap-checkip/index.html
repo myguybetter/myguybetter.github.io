@@ -11,7 +11,7 @@
 
     <title>
         
-        Hello, Blog
+        使用Zmap及脚本检测现有GoogleIP - Hello, Blog
         
     </title>
 
@@ -91,6 +91,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -116,81 +120,45 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        使用Zmap及脚本检测现有GoogleIP
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-06-03 18:55:09</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#github" title="github">github</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>自从收到来自Censys的邮件通知称其将开始收费计划以后，免费用户的API查询次数就被限制在250次/月，这使得给我的IP更新带来了很大不便……特别像更新US、RU这种IP资源非常大的国家，很快次数就会被用完（关键它的站点现在还限制免费用户使用search API只能查询前10000个结果，后面要查询还得花钱）。因此，我下定决心开始自己搜集IP！（认真脸</p>
+<p>方法很简单：</p>
+<ol>
+<li>使用<a href="https://github.com/zmap/zmap" target="_blank" rel="noopener">Zmap</a>对指定国家的IP段进行端口扫描（我使用的是443端口）；</li>
+<li>待扫描完成后，提取结果，使用<a href="https://github.com/xyuanmu/checkiptools" target="_blank" rel="noopener">checkip.py</a>进行证书扫描</li>
+<li>对结果排序，去重并修改为CIDR格式即可</li>
+</ol>
+<p>选择Zmap进行端口扫描是因为它耗时短且准确率高（相较Nmap而言，Masscan也不错，不过它不能直接输出IP），实测扫完越南所有IPv4段在我的VPS上用了20min左右（限制带宽10M且只占用一半CPU）。最后又花了半个小时用脚本检测了得到的33万多结果，并最终完成了更新。</p>
+<p>看来以后更新得靠这办法了……虽然慢，但也很靠谱（只能说Censys坑爹）XD</p>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>06-03</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/06/zmap-checkip/">
-                        <span>
-                            使用Zmap及脚本检测现有GoogleIP
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>05-30</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/05/ubuntu-ssl-fix/">
-                        <span>
-                            误删除Linux系统中ssl证书文件夹后的修复操作
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>05-19</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/05/Project-GoogleIPHunter/">
-                        <span>
-                            Project GoogleIPHunter
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>05-11</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2018/05/escape-games/">
-                        <span>
-                            WaveA及Gotmail手机逃脱游戏下载
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-
-    </ul>
+        <div id="comment-container">
+        </div>
+    </div>
 </div>
 
-</div>
     </div>
 </div>
 
@@ -248,10 +216,24 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '使用Zmap及脚本检测现有GoogleIP',
+        owner: 'myguybetter',
+        repo: 'myguybetter.github.io',
+        oauth: {
+            client_id: '2bcf3577e26c1c5ecadb',
+            client_secret: '8cf24d1c0fff7d25f5fea65603f49e7180ecd416',
+        },
+    })
+    gitment.render('comment-container')
+</script>
 
 </html>
