@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A starter of internet.">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Shadowsocks-libev配置小记 - Net Starter | Starting life on net.
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Starting life on net. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>starter</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载、安装"><span class="toc-text">1. 下载、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置服务器设置"><span class="toc-text">2. 配置服务器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-配置服务"><span class="toc-text">3. 配置服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建批量启动脚本"><span class="toc-text">创建批量启动脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建Systemd服务"><span class="toc-text">创建Systemd服务</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Starting life on net. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Shadowsocks-libev配置小记
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-08-17 20:01:35</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#shadowsocks-libev" title="shadowsocks-libev">shadowsocks-libev</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="1-下载、安装"><a href="#1-下载、安装" class="headerlink" title="1. 下载、安装"></a>1. 下载、安装</h3><ul>
+<li><p>下载最新release：<a href="https://github.com/shadowsocks/shadowsocks-libev/releases" title="Download" target="_blank" rel="noopener">Download</a></p>
+</li>
+<li><p>安装shadowsocks-libev：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/build-area/</span><br><span class="line">cp ./scripts/build_deb.sh ~/build-area/</span><br><span class="line"><span class="built_in">cd</span> ~/build-area</span><br><span class="line">./build_deb.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装最新v2ray-plugin（链接最后添加<code>#artifacts</code>下载对应系统文件）：<a href="https://circleci.com/gh/shadowsocks/v2ray-plugin/tree/master" title="Download" target="_blank" rel="noopener">Download</a></p>
+</li>
+</ul>
+<h3 id="2-配置服务器设置"><a href="#2-配置服务器设置" class="headerlink" title="2. 配置服务器设置"></a>2. 配置服务器设置</h3><p>config_sample.json，文件命名以config_0.json, config_1.json…</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"mode"</span>:<span class="string">"tcp_and_udp"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:server_port,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"password_here"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">60</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"method_here"</span>,</span><br><span class="line">    <span class="attr">"plugin"</span>:<span class="string">"v2ray-plugin_location"</span>,</span><br><span class="line">    <span class="attr">"plugin_opts"</span>:<span class="string">"server;tls;host=domain_here;cert=fullchain_file;key=key_file"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置服务"><a href="#3-配置服务" class="headerlink" title="3. 配置服务"></a>3. 配置服务</h3><h4 id="创建批量启动脚本"><a href="#创建批量启动脚本" class="headerlink" title="创建批量启动脚本"></a>创建批量启动脚本</h4><p>在<code>/usr/local/bin</code>建立脚本<code>shadowsocks-libev-autostart</code>并添加执行权限，<code>args</code>为全局通用参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">proc=/usr/bin/ss-server</span><br><span class="line">config_dir=/etc/shadowsocks-libev</span><br><span class="line">args=<span class="string">"-n 32678 -u --fast-open -v"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$proc</span> -c <span class="variable">$config_dir</span>/config_0.json -f /var/run/shadowsocks-libev_0.pid <span class="variable">$args</span>	<span class="comment">#port 0</span></span><br><span class="line"><span class="variable">$proc</span> -c <span class="variable">$config_dir</span>/config_1.json -f /var/run/shadowsocks-libev_1.pid <span class="variable">$args</span>	<span class="comment">#port 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建Systemd服务"><a href="#创建Systemd服务" class="headerlink" title="创建Systemd服务"></a>创建Systemd服务</h4><p>在<code>/etc/systemd/system</code>下建立<code>shadowsocks-libev.service</code>，内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks-libev Multi-user Server Service</span><br><span class="line">Documentation=man:shadowsocks-libev(8)</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=root</span><br><span class="line">LimitNOFILE=32768</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/shadowsocks-libev-autostart</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>启用服务<code>systemctl enable shadowsocks-libev</code></p>
+<p>启动服务<code>systemctl start shadowsocks-libev</code></p>
+<p>部分参考<a href="https://asdasd.page/2018/06/21/Shadowsocks-libev-Multiple-Port-with-Systemd/" title="Shadowsocks-libev多端口配置" target="_blank" rel="noopener">Shadowsocks-libev多端口配置</a>。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
